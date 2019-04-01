@@ -18,7 +18,7 @@ public class CategoryDAOImpl implements CategoryDAO
 
 	@Autowired
 	SessionFactory sessionFactory;
-	
+
 	public boolean addCategory(Category category) 
 	{
 		try

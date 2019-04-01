@@ -11,6 +11,10 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.ecomm.model.Category;
+import com.ecomm.model.Product;
+import com.ecomm.model.Supplier;
+import com.ecomm.model.UserDetails;
+
 @Configuration
 @EnableTransactionManagement
 public class DBConfiguration {
