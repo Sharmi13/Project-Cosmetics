@@ -13,18 +13,19 @@ public class UserDetails
 {	
 	@Id
 	@GeneratedValue
+	String register;
 	String username;
 	String password;
 	String role;
 	String mobileNo;
 	boolean enabled;
-	public String getMobileNo() {
-		return mobileNo;
+		
+	public String getRegister() {
+		return register;
 	}
-	public void setMobileNo(String mobileNo) {
-		this.mobileNo = mobileNo;
+	public void setRegister(String register) {
+		this.register = register;
 	}
-
 	public String getUsername() {
 		return username;
 	}
@@ -42,6 +43,12 @@ public class UserDetails
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public String getMobileNo() {
+		return mobileNo;
+	}
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
 	}
 	public boolean isEnabled() {
 		return enabled;
@@ -61,7 +68,6 @@ public class UserDetails
 	public void setCustomerAddr(String customerAddr) {
 		CustomerAddr = customerAddr;
 	}
-	
 	String customername;
 	String CustomerAddr;
 	
