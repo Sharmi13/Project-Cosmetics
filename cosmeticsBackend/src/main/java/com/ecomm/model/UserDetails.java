@@ -2,6 +2,7 @@ package com.ecomm.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -11,10 +12,19 @@ import javax.persistence.Table;
 public class UserDetails 
 {	
 	@Id
+	@GeneratedValue
 	String username;
 	String password;
 	String role;
+	String mobileNo;
 	boolean enabled;
+	public String getMobileNo() {
+		return mobileNo;
+	}
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -54,4 +64,5 @@ public class UserDetails
 	
 	String customername;
 	String CustomerAddr;
+	
 	}
