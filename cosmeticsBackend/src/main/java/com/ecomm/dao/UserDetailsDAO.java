@@ -4,7 +4,9 @@ import com.ecomm.model.UserDetails;
 
 public interface UserDetailsDAO 
 {
- public boolean registerUser(UserDetails user);
- public boolean updateAddress(UserDetails user);
-public boolean updateUser(UserDetails user);
+	public boolean registerUser(UserDetails user);	
+	public boolean deleteUser(UserDetails user);
+	public boolean updateUser(UserDetails user);
+	public UserDetails getUser(String username);
+	
 }

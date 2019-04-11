@@ -38,14 +38,14 @@ public class ProductDAOTest
 		product.setSupplierID(4);
 		assertTrue("Problem in adding Product",productDAO.addProduct(product));
 	}
-  	@Ignore
+  	
   	@Test
   	public void deleteProductTest()
   	{
   		Product product = productDAO.getProduct(9);
   		assertTrue("Problem in deleting Product",productDAO.deleteProduct(product));
   	}
-  	@Ignore
+  	
   	@Test
   	public void updateProductTest()
   	{
@@ -53,7 +53,7 @@ public class ProductDAOTest
   		product.setStock(10);
   		assertTrue("Problem in updating Product",productDAO.updateProduct(product));
   	}
-  	@Ignore
+  	
   	@Test
   	public void listProductsTest()
 	{

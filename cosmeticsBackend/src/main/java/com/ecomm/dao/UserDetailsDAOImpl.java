@@ -8,16 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ecomm.model.Category;
 import com.ecomm.model.Product;
 import com.ecomm.model.UserDetails;
+
+@Repository("userdetailsDAO")
+@Transactional
 
 public class UserDetailsDAOImpl implements UserDetailsDAO
 {
 
-	@Autowired
-	SessionFactory sessionFactory;
+	 @Autowired
+	  SessionFactory sessionFactory;
 	public boolean registerUser(UserDetails user) {
-		
 		try 
 		{
 			sessionFactory.getCurrentSession().save(user);
@@ -28,27 +31,15 @@ public class UserDetailsDAOImpl implements UserDetailsDAO
 		{
 			return false;
 		}
-	}
-
-	@Autowired
-	public boolean updateAddress(UserDetails user) {
-				try 
-		{
-			sessionFactory.getCurrentSession().update(user); 
-			return true;
-		}
-		catch(Exception e)
-		{
-			return false;
-		}	
+	
 
 	}
 
-	@Autowired
-	public boolean updateUser(UserDetails user) {
+	@Override
+	public boolean deleteUser(UserDetails user) {
 		try 
 		{
-			sessionFactory.getCurrentSession().update(user);; 
+			sessionFactory.getCurrentSession().delete(user); 
 			return true;
 		}
 		catch(Exception e)
@@ -56,8 +47,23 @@ public class UserDetailsDAOImpl implements UserDetailsDAO
 			return false;
 		}	
 
-	}
+		}
 
+	@Override
+	public boolean updateUser(UserDetails user) 
+	{
+		try 
+		{
+			sessionFactory.getCurrentSession().update(user); 
+				
+			return true;
+		}
+		catch(Exception e)
+		{
+		return false;
+		}
+	}
+	
 public List<UserDetails> listUserDetails() {
 		
 		Session session=sessionFactory.openSession();
@@ -66,17 +72,15 @@ public List<UserDetails> listUserDetails() {
 		return  listUserDetails;
 	}
 
-	
-	public UserDetails getUser(String username) 
+	@Override
+	public UserDetails getUser(String username)
 	
 	{
 		Session session=sessionFactory.openSession();
 		UserDetails user=(UserDetails)session.get(UserDetails.class,username);
 		session.close();
-		return user;
+		return user;		
 	}
 
-
-
-
-}
+	
+	}

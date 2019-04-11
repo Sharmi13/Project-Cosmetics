@@ -35,11 +35,10 @@ public class CartController
 		
 		List<Cart>listCart=cartDAO.listCart(username);
 		UserDetails user=userdetailsDAO.getUser(username);
-		user.setCustomerAddr(address);
-		userdetailsDAO.updateUser(user);
+				userdetailsDAO.updateUser(user);
 		m.addAttribute("listCart",listCart);
 		m.addAttribute("grandTotal", this.calGrandTotalPrice(listCart));
-		m.addAttribute("addr",user.getCustomerAddr());
+		
 		
 		return "OrderConfirm";
 	}
@@ -94,8 +93,7 @@ public class CartController
 		System.out.println("from cart contoller "+user);
 		m.addAttribute("listCartItem",listCart);
 		m.addAttribute("grandTotal", this.calGrandTotalPrice(listCart));
-		m.addAttribute("addr",user.getCustomerAddr());
-				
+						
 		
 		return "OrderConfirm";
 	}

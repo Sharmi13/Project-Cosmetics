@@ -79,14 +79,12 @@ public class UserController
   {
   	    	
   	UserDetails user=new UserDetails();
-  	user.setCustomerAddr(customerAddr);
-  	user.setCustomername(customerName);
   	user.setEnabled(true);
   	user.setMobileNo(mobileNo);
   	user.setPassword(password);
-     	user.setRole("user");
+     user.setRole("user");
   	
-  	user.setCustomername(username);
+  	user.setUsername(username);
   	
 
   

@@ -24,7 +24,7 @@ public class CategoryDAOTest {
 	     categoryDAO=(CategoryDAO)context.getBean("categoryDAO");
 	     
 	}
-	@Ignore
+	
 	@Test
 	public void addCategoryTest() 
 	{

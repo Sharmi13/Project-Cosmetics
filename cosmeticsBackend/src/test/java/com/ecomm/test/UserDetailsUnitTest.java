@@ -22,35 +22,37 @@ public class UserDetailsUnitTest
 	     context.refresh();
 	     userdetailsDAO=(UserDetailsDAO)context.getBean("userdetailsDAO");
 	}    
-    @Ignore
+    
 	@Test
-	public void addusertest() 
+	public  void registerUser() 
 	{
-		UserDetails user = new UserDetails();
-		user.setCustomername("Rikshitha");
-		user.setCustomerAddr("Delhi");
-		user.setUsername("Rikshi");
-		user.setPassword("Rikshi");
-		user.setRole("User");
+		UserDetails user=new UserDetails();
+		
+		user.setMobileNo("9087558324");
+		user.setPassword("123");
+		user.setRole("Admin");
 		user.setEnabled(true);
-		assertTrue("Problem in adding User Details",userdetailsDAO.registerUser(user));
+		user.setUsername("Amirtha");
+		
+		
+		assertTrue("Problem in User Insertion",userdetailsDAO.registerUser(user));
+	
 	}
-    @Test
-    public void updateusertest()
-    {
-    	UserDetails user = userdetailsDAO.getUser("Rikshi");
-    	user.setCustomerAddr("Delhi NehruPark");
-		assertTrue("Problem in updating User Details",userdetailsDAO.updateAddress(user));
+	@Ignore
+	@Test
+	public  void deleteUser() 
+	{
+		//UserDetail user=userDAO.getUser("1256");
+		//assertTrue("Problem in Deletion:",userDAO.deleteUser(user));
 	}
-    @Test
-    public void viewusertest()
-    {
-    	UserDetails user = userdetailsDAO.getUser("Sahana");
+	
+	@Ignore
+	@Test
+	public  void updateUser() 
+	{
 
-    	System.out.println("Customer name           :"+user.getCustomername());
-    	System.out.println("Customer Address        :"+user.getCustomerAddr());
-    	System.out.println("Customer Role           :"+user.getRole());
-    	System.out.println("Customer Account Status :"+user.isEnabled());
-
-    }
+		//UserDetail user=userDAO.getUser("ravi");
+	  //  user.setAddr("Anna Nagar");
+		//assertTrue("Problem in Updation",userDAO.updateUser(user));
+}
 }
