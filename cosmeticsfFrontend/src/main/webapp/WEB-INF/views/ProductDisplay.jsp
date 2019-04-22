@@ -11,7 +11,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body background="resources/images/bg3.jpg">
+<body background="resources/images/cosmo1.jpg">
 
 <div class="row">
 <c:forEach items="${productList }" var="product">
@@ -25,8 +25,6 @@
 </div>
 
  </c:forEach>   
- 
 </div>
-
 </body>
 </html>

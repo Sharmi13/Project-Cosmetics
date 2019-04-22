@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ecomm.dao.CartDAO;
 import com.ecomm.dao.ProductDAO;
-import com.ecomm.dao.UserDetailsDAO;
+import com.ecomm.dao.UserDetailDAO;
 import com.ecomm.model.Cart;
 import com.ecomm.model.Product;
-import com.ecomm.model.UserDetails;
+import com.ecomm.model.UserDetail;
 
 public class CartController 
 {
@@ -25,7 +25,7 @@ public class CartController
 	@Autowired
 	CartDAO cartDAO;
 	@Autowired
-	UserDetailsDAO userdetailsDAO;
+	UserDetailDAO userdetailDAO;
 	
 	@RequestMapping("/updateAddress")
 	public String updateAddress(@RequestParam("address") String address,String usernane ,Model m, HttpSession session)
@@ -34,8 +34,8 @@ public class CartController
 		String username=(String)session.getAttribute("username");
 		
 		List<Cart>listCart=cartDAO.listCart(username);
-		UserDetails user=userdetailsDAO.getUser(username);
-				userdetailsDAO.updateUser(user);
+		UserDetail user=userdetailDAO.getUser(username);
+				userdetailDAO.updateUser(user);
 		m.addAttribute("listCart",listCart);
 		m.addAttribute("grandTotal", this.calGrandTotalPrice(listCart));
 		
@@ -88,7 +88,7 @@ public class CartController
 		String username=(String)session.getAttribute("username");
 		System.out.println("from order confirm"+username);
 		List<Cart>listCart=cartDAO.listCart(username);
-		UserDetails user=userdetailsDAO.getUser(username);
+		UserDetail user=userdetailDAO.getUser(username);
 		
 		System.out.println("from cart contoller "+user);
 		m.addAttribute("listCartItem",listCart);
@@ -116,10 +116,7 @@ public class CartController
 		return "Cart";
 	}
 	
-	
-	
-
-	
+		
 	public int calGrandTotalPrice(List<Cart> listCart)
 	{
 		int grandTotal=0;

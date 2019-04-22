@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ecomm.dao.UserDetailsDAO;
-import com.ecomm.model.UserDetails;
+import com.ecomm.dao.UserDetailDAO;
+import com.ecomm.model.UserDetail;
 @Controller
 public class UserController 
 {
 	  @Autowired
-	    UserDetailsDAO userdetailsDao;
+	    UserDetailDAO userdetailDao;
 	
 	@RequestMapping("/login_success")
 	public String checkLogin(HttpSession session, Model m) 
@@ -78,21 +78,16 @@ public class UserController
   public String addUser(Model m, @RequestParam("mobileNo")String mobileNo,@RequestParam("userName")String username,@RequestParam("password")String password,@RequestParam("customerName")String customerName,@RequestParam("customerAddr")String customerAddr)
   {
   	    	
-  	UserDetails user=new UserDetails();
+  	UserDetail user=new UserDetail();
   	user.setEnabled(true);
   	user.setMobileNo(mobileNo);
   	user.setPassword(password);
      user.setRole("user");
   	
-  	user.setUsername(username);
+  	user.setUserName(username);
   	
 
-  
-
-  	
-  	
-  	
-  	userdetailsDao.registerUser(user);
+  	userdetailDao.registerUser(user);
 		return "login";
   	
 	}

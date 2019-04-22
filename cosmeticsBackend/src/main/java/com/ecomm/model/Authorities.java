@@ -13,7 +13,7 @@ public class Authorities
 private int authoritiesId;
 private String role;
 @OneToOne
-private UserDetails user;
+private UserDetail user;
 public int getAuthoritiesId() {
 	return authoritiesId;
 }
@@ -26,10 +26,10 @@ public String getRole() {
 public void setRole(String role) {
 	this.role = role;
 }
-public UserDetails getUser() {
+public UserDetail getUser() {
 	return user;
 }
-public void setUserDetails(UserDetails user) {
+public void setUserDetail(UserDetail user) {
 	this.user = user;
 }
 

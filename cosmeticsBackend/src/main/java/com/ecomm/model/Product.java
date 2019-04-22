@@ -1,6 +1,11 @@
 package com.ecomm.model;
+
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class Product 
 {
@@ -56,6 +61,15 @@ public class Product
 		this.supplierID = supplierID;
 	}
 		 
+	@Transient
+	MultipartFile pimage;
+	
+	public MultipartFile getPimage() {
+		return pimage;
+	}
+	public void setPimage(MultipartFile pimage) {
+		this.pimage = pimage;
+	}
 	}
 	
 

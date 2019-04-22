@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.ecomm.model.Cart;
-import com.ecomm.model.UserDetails;
+import com.ecomm.model.UserDetail;
 
 public class CartDAOImpl implements CartDAO
 {
